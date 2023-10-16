@@ -1,0 +1,28 @@
+---
+- name: Install Nagios Libraries and Dependencies in Ubuntu
+  apt:
+    name:
+      - gcc
+      - libapache2-mod-php7.4
+      - libgd-dev
+      - make
+      - gettext
+      - automake
+      - autoconf
+      - wget
+      - openssl
+      - unzip
+  when: ansible_distribution == "Ubuntu"
+
+- name: Install Nagios Libraries and Dependencies in CentOS
+  yum:
+    name:
+      - gcc
+      - automake
+      - autoconf
+      - wget
+      - openssl-devel
+      - net-snmp
+      - net-snmp-utils
+      - unzip
+  when: ansible_distribution == "CentOS"
